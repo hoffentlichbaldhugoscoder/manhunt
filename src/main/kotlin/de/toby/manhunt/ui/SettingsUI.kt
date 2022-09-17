@@ -4,8 +4,6 @@ import de.toby.manhunt.Manager
 import de.toby.manhunt.config.implementation.Settings
 import de.toby.manhunt.game.Game
 import de.toby.manhunt.game.implementation.Lobby
-import de.toby.manhunt.team.implementation.hunterTeam
-import de.toby.manhunt.team.implementation.runnerTeam
 import de.toby.manhunt.util.hitCooldown
 import net.axay.kspigot.chat.literalText
 import net.axay.kspigot.event.listen
@@ -33,7 +31,10 @@ object SettingsUI {
 
     fun enable() {
         listen<PlayerInteractEvent> {
-            if (it.item?.isSimilar(item) == true) it.player.performCommand("settings")
+            if (it.item?.isSimilar(item) == true) {
+                it.player.performCommand("settings")
+                it.isCancelled = true
+            }
         }
     }
 
