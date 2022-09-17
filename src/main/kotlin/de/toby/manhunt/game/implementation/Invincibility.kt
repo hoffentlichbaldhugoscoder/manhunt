@@ -5,15 +5,13 @@ import de.toby.manhunt.config.implementation.Settings
 import de.toby.manhunt.game.Game
 import de.toby.manhunt.game.Phase
 import de.toby.manhunt.listener.Connection
-import de.toby.manhunt.util.PlayerHider.hide
 import de.toby.manhunt.scoreboard.implementation.mainScoreboard
 import de.toby.manhunt.team.TeamManager.getTeam
-import de.toby.manhunt.team.TeamManager.updateTeams
 import de.toby.manhunt.team.implementation.hunterTeam
 import de.toby.manhunt.team.implementation.runnerTeam
-import de.toby.manhunt.team.implementation.spectatorTeam
 import de.toby.manhunt.user.UserState
 import de.toby.manhunt.user.user
+import de.toby.manhunt.util.PlayerHider.hide
 import de.toby.manhunt.util.eliminate
 import de.toby.manhunt.util.formatToMinutes
 import de.toby.manhunt.util.reset
@@ -21,7 +19,6 @@ import net.axay.kspigot.extensions.broadcast
 import net.axay.kspigot.extensions.onlinePlayers
 import org.bukkit.ChatColor
 import org.bukkit.GameMode
-import org.bukkit.World
 import org.bukkit.entity.EnderDragon
 import org.bukkit.entity.Player
 import org.bukkit.event.entity.*
@@ -30,7 +27,7 @@ import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.event.player.PlayerQuitEvent
 
-class Invincibility(world: World) : Phase() {
+class Invincibility : Phase() {
 
     init {
         Manager.world.run {
