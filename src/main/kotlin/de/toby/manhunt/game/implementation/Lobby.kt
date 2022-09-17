@@ -111,7 +111,7 @@ class Lobby : Phase() {
                 0 -> {
                     broadcast("${ChatColor.YELLOW}The game has started")
 
-                    Game.current = Invincibility(Manager.world)
+                    Game.current = Invincibility()
                 }
             }
         } else {
