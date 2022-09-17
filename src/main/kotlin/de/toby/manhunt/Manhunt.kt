@@ -6,6 +6,10 @@ import de.toby.manhunt.game.implementation.Lobby
 import de.toby.manhunt.listener.Connection
 import de.toby.manhunt.listener.DamageNerf
 import de.toby.manhunt.listener.Tracker
+import de.toby.manhunt.team.TeamManager
+import de.toby.manhunt.team.implementation.hunterTeam
+import de.toby.manhunt.team.implementation.runnerTeam
+import de.toby.manhunt.team.implementation.spectatorTeam
 import de.toby.manhunt.ui.SettingsUI
 import de.toby.manhunt.ui.TeamUI
 import net.axay.kspigot.main.KSpigot
@@ -25,6 +29,7 @@ class Manhunt : KSpigot() {
 
     override fun startup() {
         world = server.getWorld("world") ?: return
+        TeamManager.teams += listOf(runnerTeam, hunterTeam, spectatorTeam)
 
         Connection.enable()
         Tracker.enable()
